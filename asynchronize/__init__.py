@@ -16,6 +16,9 @@ class AsyncCallback:
     def step_callback(self, *args, **kwargs):
         # Whenever a step is called, add to the queue but don't set finished to True, so __anext__ will continue
         args = Args(args, kwargs)
+
+        # We have to use the threadsafe call so that it wakes up the event loop, in case it's sleeping:
+        # https://stackoverflow.com/a/49912853/2148718
         self.loop.call_soon_threadsafe(
             self.queue.put_nowait,
             args
