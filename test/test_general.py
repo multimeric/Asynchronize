@@ -74,4 +74,3 @@ async def test_multithreaded_callback():
     # Check the single return value
     val = await callback
     assert val.args[0] is True
-

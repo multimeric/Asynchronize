@@ -3,6 +3,12 @@
 Asynchronize is designed for situations where you are using a library that provides a callback interface, but you want
 to work with the convenience of `await` or `async for`.
 
+## Installation
+To install Asynchronize, run:
+```bash
+pip install asynchronize
+```
+
 ## Examples
 ### Async Generator
 First, let's say you're working with a library that's designed to call `step_callback` each time it receives a new chunk of data, and then `end_callback` once it's finished.
